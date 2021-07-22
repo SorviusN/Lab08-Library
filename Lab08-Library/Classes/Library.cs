@@ -10,7 +10,7 @@ using Lab08_Library.Interfaces;
 
 namespace Lab08_Library.Classes
 {
-	class Library : ILibrary
+	public class Library : ILibrary
 	{
 		public int Count { get; set; } = 0;
 
@@ -19,15 +19,18 @@ namespace Lab08_Library.Classes
 		private List<string> temp { get; set; }
 
 
-		public void DisplayBooks()
-		{	
+		public string DisplayBooks()
+		{
+			string display = "";
 			// For every book in library, display the title.
 			foreach(string book in temp)
 			{
+				display += book;
 				Console.WriteLine($"{book}");
 			}
+			return display;
 		}
-		public void Add(string title, string first, string last, int numOfPages)
+		public string Add(string title, string first, string last, int numOfPages)
 		{
 			// Create a new book from the parameters given when we add.
 			Book newBook = new Book(title, first, last, numOfPages);
@@ -36,6 +39,7 @@ namespace Lab08_Library.Classes
 			temp.Add(title);
 			// Increase count by 1
 			Count++;
+			return newBook.Title;
 		}
 
 		public Book Borrow(string title)
@@ -70,5 +74,6 @@ namespace Lab08_Library.Classes
 		{
 			throw new NotImplementedException();
 		}
+
 	}
 }

@@ -8,12 +8,21 @@ using Lab08_Library.Interfaces;
 
 namespace Lab08_Library.Classes
 {
-	class Satchel : IBag<Book>
+	public class Satchel : IBag<Book>
 	{
 
 		// Intitializing our list of books which are borrowed from the library and returned back to the library.
 		private List<Book> books { get; set; }
 
+		public string ShowBooks()
+		{
+			string display = "";
+			foreach(Book book in books)
+			{
+				display += $"{book.Title} ";
+			}
+			return display;
+		}
 		public void Pack(Book item)
 		{	
 			// Uses List.Add functionality to add the passed in book to the satchel.

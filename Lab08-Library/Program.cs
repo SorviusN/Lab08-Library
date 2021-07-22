@@ -13,8 +13,6 @@ namespace Lab08_Library
 			Satchel satchel = new Satchel();
 
 			CreateBook(lib);
-
-
 		}
 
 
