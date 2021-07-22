@@ -15,7 +15,6 @@ namespace Lab08_Library
 			CreateBook(lib);
 		}
 
-
 		static void borrowBook(Library lib, Satchel satchel)
 		{
 			lib.DisplayBooks();
