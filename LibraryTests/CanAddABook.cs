@@ -54,6 +54,7 @@ namespace LibraryTests
 			Assert.True(lib.Count == 1);
 		}
 
+		[Fact]
 		public void CanPackAndUnPack()
 		{
 			Library lib = new Library();
@@ -62,7 +63,7 @@ namespace LibraryTests
 			satch.Pack(lib.Borrow("Test"));
 
 			// We assert that when we show the books in the satchel, test will show up and when we unpack the "test" book, nothing will show.
-			Assert.Equal("Test", satch.ShowBooks());
+			Assert.Equal("Test ", satch.ShowBooks());
 			satch.Unpack(0);
 			Assert.True(satch.ShowBooks() == "");
 		}
