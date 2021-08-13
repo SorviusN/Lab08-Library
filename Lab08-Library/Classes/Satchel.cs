@@ -12,7 +12,7 @@ namespace Lab08_Library.Classes
 	{
 
 		// Intitializing our list of books which are borrowed from the library and returned back to the library.
-		private List<Book> books { get; set; }
+		public List<Book> books { get; set; } = new List<Book>();
 
 		public string ShowBooks()
 		{
@@ -37,14 +37,18 @@ namespace Lab08_Library.Classes
 			return bookToRemove;
 		}
 
+		// BOILERPLATE 
 		public IEnumerator<Book> GetEnumerator()
 		{
-			return books.GetEnumerator();
+			foreach (Book book in books)
+			{
+				yield return book;
+			}
 		}
 
 		IEnumerator IEnumerable.GetEnumerator()
 		{
-			throw new NotImplementedException();
+			return GetEnumerator();
 		}
 	}
 }

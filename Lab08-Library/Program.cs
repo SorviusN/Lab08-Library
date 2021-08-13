@@ -6,13 +6,16 @@ namespace Lab08_Library
 {
 	class Program
 	{
-
 		static void Main(string[] args)
 		{
 			Library lib = new Library();
 			Satchel satchel = new Satchel();
 
 			CreateBook(lib);
+
+			borrowBook(lib, satchel);
+
+			Console.WriteLine(satchel.ShowBooks());
 		}
 
 		static void borrowBook(Library lib, Satchel satchel)
